@@ -120,6 +120,16 @@ Designed in **EasyEDA** following this process:
 
 The board uses a **double-layer PCB** to keep the footprint small while separating the high-power relay side from the low-power control circuit.
 
+![PCB Design](pcb_2dm.png)
+
+The highlighted regions (marked in the image) show a deliberate **physical gap** between the relay coil driver circuitry (low-voltage control side) and the relay contact traces (high-voltage load side).
+
+Rather than relying solely on the relay package itself for isolation, I extended this separation directly into the PCB layout — creating **creepage and clearance distance** between the two voltage domains. This prevents electrical arcing, protects the microcontroller and gate driver circuitry from transient high-voltage events, and ensures the board meets basic safety expectations for a mains-adjacent design.
+
+What I find elegant about this choice: it costs nothing — no extra components, no added BOM cost — just intentional use of empty board space. The isolation is literally air and FR4. It's one of those decisions that's invisible when it works, but immediately obvious in a post-mortem when it's missing.
+
+The module drives two relays (RLY1, RLY2) via optocoupler-isolated transistor stages (Q1, Q2), with the gap reinforcing the optical isolation already present in the signal path — giving the design two independent layers of protection between the user-facing control logic and the switched load.
+
 ---
 
 ## 🖥️ Development Environment
