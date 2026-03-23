@@ -130,7 +130,9 @@ This project was built using **ST Visual Develop (STVD)** with the **Cosmic STM8
 1. Install [STVD](https://www.st.com/en/development-tools/stvd-stm8.html) (ST Visual Develop)
 2. Install [Cosmic STM8 Compiler](https://www.cosmicsoftware.com/download_stm8_free.php) (free license available)
 3. Clone this repo and open `relay_final.stw` in STVD — **or** create a new STVD workspace and add `main.c` and `stm8_interrupt_vector.c` to it
-4. Add the `stm8s003-dev-board-main/` library folder to your project's include path
+4. Download the STM8S003 dev board library from
+   https://github.com/sonocotta/stm8s003-dev-board
+   and add it to your project's include path in STVD
  
 ### Flashing
 Flashing is done via the **SWIM (Single Wire Interface Module)** port using an ST-LINK programmer:
